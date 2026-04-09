@@ -1,9 +1,6 @@
 [submodule "external/moverscore"]
 	path = src/external/moverscore
 	url = https://github.com/AIPHES/emnlp19-moverscore.git
-[submodule "external/SUPERT"]
-	path = src/external/SUPERT
-	url = https://github.com/danieldeutsch/SUPERT.git
 [submodule "external/BARTScore"]
 	path = src/external/BARTScore
 	url = https://github.com/neulab/BARTScore.git
