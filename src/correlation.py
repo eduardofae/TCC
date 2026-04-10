@@ -69,8 +69,9 @@ def get_human_stdevs(path):
     return human_evals
 
 
-RESULTS_PATH = 'outputs/qa/FairytaleQA-translated-ptBR/gemma-3-1b-it'
-write_data(get_correlations(RESULTS_PATH), f'{RESULTS_PATH}/correlations.json')
-write_data(get_metrics_avg(RESULTS_PATH) , f'{RESULTS_PATH}/metrics-avg.json' )
-write_data(get_human_avgs(RESULTS_PATH)  , f'{RESULTS_PATH}/human-avgs.json'  )
-write_data(get_human_stdevs(RESULTS_PATH), f'{RESULTS_PATH}/human-stdevs.json')
+RESULTS_PATHS = ['./Saídas Obtidas/QA/gemma-3-1b-it', './Saídas Obtidas/SUMM/ptt5-base-summ-xlsum']
+for results_path in RESULTS_PATHS:
+    write_data(get_correlations(results_path), f'{results_path}/correlations.json')
+    write_data(get_metrics_avg(results_path) , f'{results_path}/metrics-avg.json' )
+    write_data(get_human_avgs(results_path)  , f'{results_path}/human-avgs.json'  )
+    write_data(get_human_stdevs(results_path), f'{results_path}/human-stdevs.json')

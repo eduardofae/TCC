@@ -19,7 +19,7 @@ metrics = {
     'meteor': evaluate.load('meteor'),
     'rouge': Rouge(),
     'bertscore': evaluate.load('bertscore'),
-    'bartscore': BARTScorer()
+    'bartscore': BARTScorer(checkpoint='adalbertojunior/bart-base-portuguese')
 }
 
 def add_bleu(prediction, reference, results):
@@ -47,7 +47,7 @@ def add_rouge(prediction, reference, results):
 def add_bertscore(prediction, reference, results):
     metric_name = 'bertscore'
     metric = metrics[metric_name]
-    values = metric.compute(predictions=[prediction], references=[reference], lang='pt')
+    values = metric.compute(predictions=[prediction], references=[reference], model_type='neuralmind/bert-large-portuguese-cased', num_layers=24)
     results[metric_name+'-p']  = values['precision'][0]
     results[metric_name+'-r']  = values['recall'][0]
     results[metric_name+'-f1'] = values['f1'][0]

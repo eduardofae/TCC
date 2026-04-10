@@ -9,7 +9,7 @@ call:create_exec
     echo @echo off
     echo setlocal
     echo call activate 
-    echo set "MOVERSCORE_MODEL=neuralmind/bert-base-portuguese-cased"
+    echo set "MOVERSCORE_MODEL=neuralmind/bert-large-portuguese-cased"
     echo python src\run.py
     echo endlocal
 ) > run.bat
