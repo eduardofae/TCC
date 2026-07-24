@@ -42,7 +42,7 @@ setlocal enableDelayedExpansion
 (
    for /F "tokens=1* delims=:" %%a in ('findstr /N "^" %temp%') do (
       set "line=%%b"
-      if defined line set "line=!line:RobertaForConditionalGeneration=BartForConditionalGeneration!"
+      if defined line set "line=!line:BartTokenizer=RobertaTokenizer!"
       echo(!line!)
    ) > %source%
 )
