@@ -27,6 +27,7 @@ setlocal enableDelayedExpansion
       set "line=%%b"
       if defined line set "line=!line:np.float=float!"
       if defined line set "line=!line:float32=float!"
+      if defined line set "line=!line:model_name, o=model_name, attn_implementation="eager", o!"
       echo(!line!)
    ) > %source%
 )
