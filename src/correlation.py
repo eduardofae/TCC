@@ -1,5 +1,5 @@
 from scipy.stats import pearsonr
-from dataHandler import read_data, write_data
+from utils.dataHandler import read_data, write_data
 from statistics import stdev
 
 def get_human_evals(path, padding=1):

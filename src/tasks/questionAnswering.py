@@ -30,7 +30,7 @@ def get_tasks():
     }
 
 from metrics import eval_data
-from dataHandler import write_data, get_output_paths
+from utils.dataHandler import write_data, get_output_paths
 from tqdm import tqdm
 from groups import gen_all_groups
 TASK_NAME = 'qa'

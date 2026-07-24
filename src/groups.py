@@ -1,6 +1,7 @@
 from pathlib import Path
-from dataHandler import read_data, write_data
+from utils.dataHandler import read_data, write_data
 from random import sample
+
 def gen_all_groups(path):
     folder = Path(path)
     file_name = "metrics.json"
