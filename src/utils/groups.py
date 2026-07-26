@@ -27,3 +27,8 @@ def print_groups(path):
             str_groups += f'Title: {k}\n\nText: {v['context'] if 'context' in v else v['text']}\n\nAnswer: {v['generated']}\n\n================================================================\n\n'
         with open(f'{file.parent}/group.txt', 'w', encoding='utf8') as file:
             file.write(str_groups)
+
+if __name__ == '__main__':
+    PATHS = ['Saídas Obtidas/QA', 'Saídas Obtidas/SUMM']
+    for path in PATHS:
+        gen_all_groups(path)

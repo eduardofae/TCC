@@ -41,3 +41,6 @@ run.bat
 
 # Hugging Face Token
 confidential.py
+
+# VS Code
+.vscode/

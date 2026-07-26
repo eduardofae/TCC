@@ -1,10 +1,10 @@
 from transformers import T5Tokenizer
 from transformers import T5ForConditionalGeneration
 
-token_name = 'unicamp-dl/ptt5-base-portuguese-vocab'
+tokenizer_name = 'unicamp-dl/ptt5-base-portuguese-vocab'
 model_name = 'recogna-nlp/ptt5-base-summ-xlsum'
 
-tokenizer = T5Tokenizer.from_pretrained(token_name)
+tokenizer = T5Tokenizer.from_pretrained(tokenizer_name)
 model_pt = T5ForConditionalGeneration.from_pretrained(model_name)
 
 def gen_summary(text):
@@ -31,7 +31,7 @@ def get_tasks():
 from metrics import eval_data
 from utils.dataHandler import write_data, get_output_paths
 from tqdm import tqdm
-from groups import gen_all_groups
+from utils.groups import gen_all_groups
 TASK_NAME = 'summarization'
 DATASET_NAME = 'cnn_dailymail_azure_pt_pt'
 MODEL_NAME = model_name.split('/')[1]
@@ -45,3 +45,4 @@ def run_summ():
     write_data(data, OUTPUT_PATHS['results'])
     write_data(eval_data(data, data_type), OUTPUT_PATHS['metrics'])
     gen_all_groups(OUTPUT_PATHS['folder'])
+    return OUTPUT_PATHS['folder']
