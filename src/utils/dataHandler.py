@@ -17,6 +17,7 @@ def get_output_paths(task_name, dataset_name, model_name):
         'folder': path
     }
 
+import numpy as np
 QUALITY_DIMENSIONS = ['Consistência', 'Naturalidade', 'Relevância', 'Coerência']
 ORDERING_TYPES = ['Per_Evaluator', 'Per_Instance']
 

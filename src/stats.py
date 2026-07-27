@@ -2,7 +2,6 @@ from utils.dataHandler import write_data, read_data, get_metrics, get_human_eval
 from scipy.stats import pearsonr, spearmanr 
 from statistics import stdev
 import krippendorff
-import numpy as np
 
 def get_correlations(path):
     metrics = get_metrics(f'{path}/group.json')
@@ -45,6 +44,13 @@ def get_krippendorff_alpha(path):
         eval_type: krippendorff.alpha(reliability_data=evaluators, level_of_measurement='ordinal')
         for eval_type, evaluators in human_evals.items()
     }
+    results['general'] = krippendorff.alpha(reliability_data=[[
+            score 
+            for eval_type in human_evals.keys() 
+            for score in human_evals[eval_type][i]
+        ]
+        for i in range(len(human_evals['Consistência']))
+    ], level_of_measurement='ordinal')
     return results
 
 def get_output_lengths(path):
